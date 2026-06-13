@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Texas Electric Co – San Antonio, TX</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --navy: #1f2a1d; --gold: #e8a33d; --light: #f7f6f2; --white: #ffffff; --gray: #6b7280; --border: #e3e0d6; }
+  body { font-family: 'Source Sans 3', sans-serif; color: var(--navy); background: var(--white); }
+
+  nav { background: var(--navy); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--white); }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.85rem; font-weight: 400; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta { background: var(--gold); color: var(--navy); padding: 0.5rem 1.25rem; border-radius: 3px; font-size: 0.85rem; font-weight: 600; text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .hero { background: linear-gradient(135deg, var(--navy) 0%, #34452f 100%); color: var(--white); padding: 5rem 2rem; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -40px; right: -40px; width: 300px; height: 300px; border: 1px solid rgba(232,163,61,0.2); border-radius: 50%; }
+  .hero::after { content: ''; position: absolute; bottom: -60px; left: -60px; width: 400px; height: 400px; border: 1px solid rgba(232,163,61,0.12); border-radius: 50%; }
+  .hero-badge { display: inline-block; background: rgba(232,163,61,0.15); border: 1px solid rgba(232,163,61,0.4); color: var(--gold); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 2px; margin-bottom: 1.5rem; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 600; line-height: 1.2; margin-bottom: 1.25rem; max-width: 680px; margin-left: auto; margin-right: auto; }
+  .hero p { font-size: 1.1rem; font-weight: 300; color: rgba(255,255,255,0.8); max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.7; }
+  .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: var(--gold); color: var(--navy); padding: 0.9rem 2rem; border-radius: 3px; text-decoration: none; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase; }
+  .btn-outline { border: 1px solid rgba(255,255,255,0.4); color: var(--white); padding: 0.9rem 2rem; border-radius: 3px; text-decoration: none; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+  .trust-bar { background: var(--light); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.25rem 2rem; text-align: center; }
+  .trust-bar p { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.75rem; }
+  .trust-items { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+  .trust-item { font-size: 0.85rem; font-weight: 600; color: var(--navy); }
+
+  .services { padding: 5rem 2rem; background: var(--white); }
+  .section-label { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: #b07d24; font-weight: 600; margin-bottom: 0.5rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--navy); margin-bottom: 1rem; }
+  .section-sub { font-size: 1rem; color: var(--gray); max-width: 500px; line-height: 1.7; margin-bottom: 3rem; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .service-card { border: 1px solid var(--border); border-radius: 4px; padding: 2rem 1.5rem; }
+  .service-icon { width: 44px; height: 44px; background: rgba(232,163,61,0.12); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; font-size: 1.4rem; }
+  .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .service-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.6; }
+
+  .about { background: var(--light); padding: 5rem 2rem; }
+  .about-inner { max-width: 860px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .about-img { border-radius: 4px; aspect-ratio: 4/3; overflow: hidden; }
+  .about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .about-text .section-sub { margin-bottom: 1.5rem; }
+  .about-stat { display: flex; gap: 2.5rem; margin-top: 2rem; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--navy); font-weight: 600; }
+  .stat-label { font-size: 0.8rem; color: var(--gray); }
+
+  .testimonial { background: var(--navy); padding: 5rem 2rem; text-align: center; }
+  .testimonial blockquote { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--white); max-width: 640px; margin: 0 auto 1.5rem; line-height: 1.5; font-style: italic; }
+  .testimonial cite { font-size: 0.85rem; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; font-style: normal; }
+
+  .contact { padding: 5rem 2rem; background: var(--white); }
+  .contact-inner { max-width: 600px; margin: 0 auto; text-align: center; }
+  .contact-inner .section-sub { margin: 0 auto 2rem; }
+  .contact-details { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+  .contact-item { font-size: 0.95rem; color: var(--gray); }
+  .contact-item strong { color: var(--navy); }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; text-align: left; }
+  .contact-form input, .contact-form textarea { width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--border); border-radius: 3px; font-family: 'Source Sans 3', sans-serif; font-size: 0.95rem; color: var(--navy); background: var(--white); }
+  .contact-form textarea { height: 120px; resize: vertical; }
+  .contact-form button { background: var(--navy); color: var(--white); border: none; padding: 0.9rem; border-radius: 3px; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; }
+
+  .emergency-bar { background: #b45309; color: white; text-align: center; padding: 0.85rem 2rem; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.03em; }
+  .emergency-bar span { opacity: 0.85; font-weight: 400; }
+
+  footer { background: var(--navy); color: rgba(255,255,255,0.5); text-align: center; padding: 2rem; font-size: 0.8rem; letter-spacing: 0.04em; }
+  footer span { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<div class="emergency-bar">
+  ⚡ 24/7 Emergency Electrical Service — Call Now: (210) 555-0148 <span>· Sparking outlet? Power out? We answer every call</span>
+</div>
+
+<nav>
+  <div class="nav-logo">Texas <span>Electric Co</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Free Estimate</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">Serving San Antonio Since 2012</div>
+  <h1>San Antonio's Trusted Licensed Electricians</h1>
+  <p>Safe, code-compliant electrical work for homes and businesses across San Antonio. Honest pricing, clean work, and a team that shows up on time.</p>
+  <div class="hero-buttons">
+    <a href="#contact" class="btn-primary">Get a Free Estimate</a>
+    <a href="#services" class="btn-outline">See Our Services</a>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <p>Trusted by San Antonio homeowners & businesses</p>
+  <div class="trust-items">
+    <span class="trust-item">✓ Licensed Master Electrician</span>
+    <span class="trust-item">✓ Fully Insured</span>
+    <span class="trust-item">✓ Same-Day Service</span>
+    <span class="trust-item">✓ Free Estimates</span>
+  </div>
+</div>
+
+<section class="services" id="services">
+  <div class="section-label">What We Offer</div>
+  <h2 class="section-title">Our Services</h2>
+  <p class="section-sub">From a single outlet to a full panel upgrade — Texas Electric Co handles residential and commercial electrical work across San Antonio.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">⚡</div>
+      <h3>Panel Upgrades</h3>
+      <p>Older home with a maxed-out breaker box? We upgrade panels safely and to code so your home can handle modern life.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💡</div>
+      <h3>Lighting & Ceiling Fans</h3>
+      <p>Recessed lighting, fixture swaps, and ceiling fan installs — done clean, fast, and wobble-free.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔌</div>
+      <h3>Outlets & Wiring Repair</h3>
+      <p>Dead outlets, flickering lights, tripping breakers — we diagnose the real problem and fix it right.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🚗</div>
+      <h3>EV Charger Installation</h3>
+      <p>Home charging stations installed safely with the dedicated circuit your electric vehicle needs.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-img"><img src="https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Electrician at work"></div>
+    <div class="about-text">
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">About Texas Electric Co</h2>
+      <p class="section-sub">Founded in 2012, Texas Electric Co was built on one principle: electrical work is about safety first. Every job — big or small — gets done to code, tested before we leave, and backed by our workmanship guarantee.</p>
+      <p style="font-size:0.9rem; color: var(--gray); line-height:1.6;">We're locally owned and operated, fully licensed and insured, and we treat your home with respect — boot covers on, work area spotless when we're done.</p>
+      <div class="about-stat">
+        <div>
+          <div class="stat-num">12+</div>
+          <div class="stat-label">Years in Business</div>
+        </div>
+        <div>
+          <div class="stat-num">1,200+</div>
+          <div class="stat-label">Jobs Completed</div>
+        </div>
+        <div>
+          <div class="stat-num">5★</div>
+          <div class="stat-label">Google Rating</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial">
+  <blockquote>"Our breaker kept tripping every time it rained. They traced it to a corroded outdoor junction box nobody else had checked, walked me through the whole fix, and the price didn't budge from the quote. Professional from start to finish."</blockquote>
+  <cite>— Denise R., Converse, TX</cite>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Request a Free Estimate</h2>
+    <p class="section-sub">Fill out the form or give us a call. We respond to every message within a few hours — usually faster.</p>
+    <div class="contact-details">
+      <div class="contact-item"><strong>Phone:</strong> (210) 555-0148</div>
+      <div class="contact-item"><strong>Email:</strong> service@texaselectricco.com</div>
+      <div class="contact-item"><strong>Hours:</strong> Mon–Sat 7am–7pm · Emergency calls 24/7</div>
+    </div>
+    <form class="contact-form" id="demoForm">
+      <input type="text" placeholder="Your Name" required />
+      <input type="text" placeholder="Phone Number" required />
+      <input type="email" placeholder="Email Address" required />
+      <textarea placeholder="What do you need help with?" required></textarea>
+      <button type="submit">Send My Request</button>
+      <div id="formSuccess" style="display:none; background:#e8f5e9; border:1px solid #4caf50; color:#2e7d32; padding:1rem; border-radius:3px; text-align:center; font-size:0.95rem;">
+        ✅ <strong>Request received!</strong> We'll get back to you within a few hours — usually faster.
+      </div>
+    </form>
+    <script>
+      document.getElementById('demoForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('formSuccess').style.display = 'block';
+        this.querySelector('button').textContent = 'Sent ✓';
+        this.querySelector('button').style.background = '#2e7d32';
+      });
+    </script>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <span>Texas Electric Co</span> · Licensed & Insured · San Antonio, TX · (210) 555-0148</p>
+</footer>
+
+</body>
+</html>
